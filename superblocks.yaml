@@ -1,0 +1,33 @@
+version: 1
+jobs:
+  compile:
+    image: node
+    script:
+      - npm install @openzeppelin/cli
+      - npx oz compile
+  test:
+    image: node
+    script:
+      - npm install @openzeppelin/cli
+      - npm test
+  deploy_to_rinkeby_manually:
+    image: node
+    type:
+      name: ethereum/deploy
+    script:
+      - npm install
+      - npx truffle migrate --network rinkeby_metamask --reset
+      - npx superblocks-cli collect-artifacts
+
+stages:
+  - build_and_test:
+      jobs:
+        - compile
+        - test
+  # - deploy_to_testnets:
+  #     jobs:
+  #       - deploy_to_rinkeby_manually:
+  #           when: manual
+  #           filters:
+  #             only:
+  #               - master
