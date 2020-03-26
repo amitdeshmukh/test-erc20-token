@@ -4,13 +4,16 @@
   "description": "A sample ERC20 contract to test CI/CD and MultiSig capabilities.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --exit --recursive test"
   },
   "author": "Amit Deshmukh",
   "license": "ISC",
   "devDependencies": {
     "@openzeppelin/cli": "^2.8.0",
-    "@truffle/hdwallet-provider": "^1.0.33"
+    "@openzeppelin/test-environment": "^0.1.3",
+    "@truffle/hdwallet-provider": "^1.0.33",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1"
   },
   "dependencies": {
     "@openzeppelin/contracts-ethereum-package": "^2.4.0",
