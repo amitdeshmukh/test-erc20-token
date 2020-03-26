@@ -9,7 +9,7 @@ jobs:
     image: node
     script:
       - npm install @openzeppelin/cli
-      - npm test
+      - npx oz compile && npm test
   deploy_to_rinkeby_manually:
     image: node
     type:
@@ -20,13 +20,11 @@ jobs:
       - npx superblocks-cli collect-artifacts
 
 stages:
-  - build:
+  - build_and_test:
       jobs:
         - compile
-  - test:
-      jobs:
         - test
-# - deploy_to_testnets:
+  # - deploy_to_testnets:
   #     jobs:
   #       - deploy_to_rinkeby_manually:
   #           when: manual
