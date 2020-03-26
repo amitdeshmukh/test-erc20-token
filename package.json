@@ -1,0 +1,20 @@
+{
+  "name": "testcoin",
+  "version": "1.0.0",
+  "description": "A sample ERC20 contract to test CI/CD and MultiSig capabilities.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amit Deshmukh",
+  "license": "ISC",
+  "devDependencies": {
+    "@openzeppelin/cli": "^2.8.0",
+    "@truffle/hdwallet-provider": "^1.0.33"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts-ethereum-package": "^2.4.0",
+    "@openzeppelin/upgrades": "^2.8.0",
+    "web3": "^1.2.6"
+  }
+}
