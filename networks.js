@@ -1,4 +1,5 @@
 const { projectId, mnemonic } = require('./secrets.json')
+const infuraProjectId = process.env.INFURA_PROJECT_ID || projectId;
 const HDWalletProvider = require('@truffle/hdwallet-provider')
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
       networkId: '*',
     },
     rinkeby: {
-      provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${projectId}`),
+      provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infuraProjectId}`),
       networkId: 4,
       gasPrice: 10e9
     }
