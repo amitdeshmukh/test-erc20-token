@@ -1,5 +1,5 @@
-const { projectId, mnemonic } = require('./secrets.json')
-const infuraProjectId = process.env.INFURA_PROJECT_ID || projectId;
+const { infuraPID, mnemonic } = require('./secrets.json')
+const infuraProjectId = process.env.INFURA_PROJECT_ID || infuraPID;
 const HDWalletProvider = require('@truffle/hdwallet-provider')
 
 module.exports = {

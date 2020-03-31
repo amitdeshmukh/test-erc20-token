@@ -4,7 +4,9 @@
   "description": "A sample ERC20 contract to test CI/CD and MultiSig capabilities.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --exit --recursive test"
+    "test": "mocha --exit --recursive test",
+    "deploy": "node src/deploy.js",
+    "deploy:rinkeby_metamask": "node src/deploy.js rinkeby_metamask"
   },
   "author": "Amit Deshmukh",
   "license": "ISC",

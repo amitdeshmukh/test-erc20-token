@@ -3,12 +3,12 @@ jobs:
   compile:
     image: node
     script:
-      - npm install @openzeppelin/cli
+      - npm install
       - npx oz compile
   test:
     image: node
     script:
-      - npm install @openzeppelin/cli
+      - npm install
       - npx oz compile && npm test
   deploy_to_rinkeby_manually:
     image: node
@@ -16,7 +16,8 @@ jobs:
       name: ethereum/deploy
     script:
       - npm install
-      - npx truffle migrate --network rinkeby_metamask --reset
+      - npx openzeppelin compile --no-interactive
+      - npm run deploy:rinkeby_metamask
       - npx superblocks-cli collect-artifacts
 
 stages:
@@ -24,10 +25,10 @@ stages:
       jobs:
         - compile
         - test
-  # - deploy_to_testnets:
-  #     jobs:
-  #       - deploy_to_rinkeby_manually:
-  #           when: manual
-  #           filters:
-  #             only:
-  #               - master
+  - deploy_to_testnets:
+      jobs:
+        - deploy_to_rinkeby_manually:
+            when: manual
+            filters:
+              only:
+                - master
